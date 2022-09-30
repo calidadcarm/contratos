@@ -1,0 +1,7 @@
+Versión 1.0.2 - 28-06-2020
+---------------------------
+Cambios para la instalación en la versión 9.4.X
+Nuevo fichero version.txt
+Modificado /contratos/setup.php
+
+
