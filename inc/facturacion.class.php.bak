@@ -284,7 +284,7 @@ class PluginContratosFacturacion extends CommonDBTM {
 			$disponible = 0;
 			$presupuestos = array();
 			
-            while ($data = $DB->fetch_assoc($result)) {
+            while ($data = $DB->fetchAssoc($result)) {
                echo "<tr class='tab_bg_2' ".
                      ($canedit
                       ? "style='cursor:pointer' onClick=\"viewEditCost".$data['contracts_id']."_".
@@ -360,7 +360,7 @@ class PluginContratosFacturacion extends CommonDBTM {
 					echo "<th>".__('Importe Pendiente')."</th>";
 					echo "</tr>";
 					
-					while ($data2 = $DB->fetch_assoc($result2)) {
+					while ($data2 = $DB->fetchAssoc($result2)) {
 						echo "<tr class='tab_bg_2' >";
 						$name = (empty($data2['name'])? sprintf(__('%1$s (%2$s)'),
                                                       $data2['name'], $data2['id'])

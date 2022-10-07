@@ -309,7 +309,7 @@ class PluginContratosFacturacion extends CommonDBTM {
 			$disponible = 0;
 			$presupuestos = array();
 			
-            while ($data = $DB->fetch_assoc($result)) {
+            while ($data = $DB->fetchAssoc($result)) {
                echo "<tr class='tab_bg_2' ".
                      ($canedit
                       ? "style='cursor:pointer' onClick=\"viewEditCost".$data['contracts_id']."_".
@@ -412,7 +412,7 @@ $totales = [
         <tbody>";	
 
 
-					while ($data2 = $DB->fetch_assoc($result2)) {
+					while ($data2 = $DB->fetchAssoc($result2)) {
 						echo "<tr class='tab_bg_2' >";
 						$name = (empty($data2['name'])? sprintf(__('%1$s (%2$s)'),
                                                       $data2['name'], $data2['id'])
@@ -487,7 +487,7 @@ $totales = [
 			$disponible = 0;
 			$presupuestos = array();
 			
-            while ($data = $DB->fetch_assoc($result)) {
+            while ($data = $DB->fetchAssoc($result)) {
                echo "<tr class='tab_bg_2' ".
                      ($canedit
                       ? "style='cursor:pointer' onClick=\"viewEditCost".$data['contracts_id']."_".
@@ -563,7 +563,7 @@ $totales = [
 					echo "<th>".__('Importe Pendiente')."</th>";
 					echo "</tr>";
 					
-					while ($data2 = $DB->fetch_assoc($result2)) {
+					while ($data2 = $DB->fetchAssoc($result2)) {
 						echo "<tr class='tab_bg_2' >";
 						$name = (empty($data2['name'])? sprintf(__('%1$s (%2$s)'),
                                                       $data2['name'], $data2['id'])
@@ -733,7 +733,8 @@ $(document).ready(function() {
       echo "<td>".__('Nº factura')."</td>";
       echo "<td>";
       echo "<input type='hidden' name='contracts_id' value='".$this->fields['contracts_id']."'>";
-      Html::autocompletionTextField($this,'name');
+//    Html::autocompletionTextField($this,'name');
+      echo Html::input('name', ['value' => $this->fields['name']]);
       echo "</td>";
       echo "<td>".__('Importe')."</td>";
       echo "<td>";

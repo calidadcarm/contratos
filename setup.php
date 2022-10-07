@@ -46,7 +46,7 @@ function plugin_init_contratos() {
 function plugin_version_contratos() {
 
    return array('name'          => _n('Contratos-Extra' , 'Contratos-Extra' ,2, 'Contratos'),
-                'version'        => '1.0.2',
+                'version'        => '1.0.3',
                 'license'        => 'AGPL3',
                 'author'         => '<a href="http://www.carm.es">CARM</a>',
                 'homepage'       => 'http://www.carm.es',

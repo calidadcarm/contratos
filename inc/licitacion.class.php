@@ -278,7 +278,7 @@ class PluginContratosLicitacion  extends CommonDBTM {
                                                 Contract::getTypeName(1), $contract->getName()));
 
             $total = 0;
-            while ($data = $DB->fetch_assoc($result)) {
+            while ($data = $DB->fetchAssoc($result)) {
                echo "<tr class='tab_bg_2' ".
                      ($canedit
                       ? "style='cursor:pointer' onClick=\"viewEditCost".$data['contracts_id']."_".
@@ -343,7 +343,8 @@ class PluginContratosLicitacion  extends CommonDBTM {
       echo "<td>".__('Anualidad')."</td>";
       echo "<td>";
       echo "<input type='hidden' name='contracts_id' value='".$this->fields['contracts_id']."'>";
-      Html::autocompletionTextField($this,'name');
+    //Html::autocompletionTextField($this,'name');
+      echo Html::input('name', ['value' => $this->fields['name']]);
       echo "</td>";
       echo "<td>".__('Importe')."</td>";
       echo "<td>";
@@ -377,7 +378,8 @@ class PluginContratosLicitacion  extends CommonDBTM {
 
       echo "<tr class='tab_bg_1'><td>".__('Project')."</td>";
       echo "<td colspan='3'>";
-         Html::autocompletionTextField($this, 'project');
+       //Html::autocompletionTextField($this, 'project');
+         echo Html::input('project', ['value' => $this->fields['project']]);
       echo "</td></tr>\n";
 
       $this->showFormButtons($options);
@@ -432,8 +434,10 @@ class PluginContratosLicitacion  extends CommonDBTM {
    echo "</tr>";
 
    // get all entities ordered by names
-   $allentities = getAllDatasFromTable('glpi_entities', [], true, 'completename');
-
+   //[INICIO] [CRI] JMZ18G 30/09/2022 PHP User deprecated function (16384): Order should be defined in criteria! in /var/www/html/glpi957/inc/toolbox.class.php at line 653
+   //$allentities = getAllDatasFromTable('glpi_entities', [], true, 'completename');
+   $allentities = getAllDataFromTable('glpi_entities', ['ORDER' => 'completename'], true);
+   //[FINAL] [CRI] JMZ18G 30/09/2022 PHP User deprecated function (16384): Order should be defined in criteria! in /var/www/html/glpi957/inc/toolbox.class.php at line 653
    while ($data = $iterator->next()) {       
       $total += $data['sumvalue'];
          echo "<tr class='tab_bg_1'>";
